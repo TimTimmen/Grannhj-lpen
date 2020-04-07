@@ -23,6 +23,17 @@ function DashboardHelper(props) {
   const [ selected, setSelected ] = useState(null)
   const [ text, setText ] = useState("")
   const [ error, setError ] = useState(null)
+  
+  fetch('http://catfacts-api.appspot.com/api/facts?number=99', { mode: 'no-cors'})
+  .then(blob => blob.json())
+  .then(data => {
+    console.table(data);
+    return data;
+  })
+  .catch(e => {
+    console.log(e);
+    return e;
+  });
 
   function removeuser() {
     cookie.remove('me')
@@ -46,7 +57,7 @@ function DashboardHelper(props) {
           let map = new google.maps.Map(ref.current, {
             zoom: 13,
             center: pos,
-            mapTypeId: 'terrain'
+            mapTypeId: 'sattelite'
           })
 
           var myMarker = new google.maps.Marker({
