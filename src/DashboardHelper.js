@@ -57,7 +57,7 @@ function DashboardHelper(props) {
           let map = new google.maps.Map(ref.current, {
             zoom: 13,
             center: pos,
-            mapTypeId: 'sattelite'
+            mapTypeId: 'terrain'
           })
 
           var myMarker = new google.maps.Marker({
